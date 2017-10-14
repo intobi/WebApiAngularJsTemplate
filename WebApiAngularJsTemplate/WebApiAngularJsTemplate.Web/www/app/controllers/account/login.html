@@ -1,0 +1,28 @@
+﻿<div ng-controller="LoginController as loginCtrl" ng-init="initalizeController()" layout="row" layout-align="center center" layout-wrap layout-margin>
+    <form name="loginForm" novalidate class="loginBox md-whiteframe-z1" flex-xs="50" flex="33"> 
+        <md-toolbar>
+            <h2 layout-align="center center" class="md-toolbar-tools"><span>Login</span></h2>
+        </md-toolbar>
+        <md-content class="md-padding" layout="column">
+            <md-input-container>
+                <label>User name</label>
+                <input name="username" id="username" ng-model="loginCtrl.loginData.userName" required/>
+                <div ng-messages="loginForm.username.$error">
+                    <div ng-message="required">{{'UserNameIsRequired' | translate}}</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input  name="password" id="password" type="password" ng-model="loginCtrl.loginData.password" ng-minlength="loginCtrl.minlength" required/>
+                <div ng-messages="loginForm.password.$error">
+                    <div ng-message="required">{{'PasswordIsRequired' | translate}}</div>
+                    <div ng-message="minlength">{{'PasswordMinLength' | translate}}{{loginCtrl.minlength}}</div>
+                </div>
+            </md-input-container>
+            <div layout="row" layout-align="center center" layout-margin>
+                <md-button flex="50" layout-align="center center" class="md-raised md-primary" ng-click="loginForm.$valid && loginCtrl.login()">Login</md-button>
+            </div>
+        </md-content>
+    </form>
+</div>
+

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="~/favicon.png" />
+    <title>Application</title>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Styles.Render("~/Assets/styles/css")
+
+    @Scripts.Render("~/bundles/angular")
+
+    <base href="/" />
+
+</head>
+<body ng-app="app" ng-cloak ng-controller="masterController as masterCtrl">
+    <div layout="row" layout-padding layout-align="space-between center" ng-if="masterCtrl.authService.isAuthorized() === true">
+        <div>
+            <md-button>Home</md-button>
+            <md-button>Item 1</md-button>
+            <md-button>Item 2</md-button>
+            <md-menu>
+                <md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button>About</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>About 2</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+        <div class="nav-buttons">
+            <label>Welcome,  {{masterCtrl.authService.getAuthData().unique_name}}</label>
+            <md-button class="md-raised" ng-click="masterCtrl.logOut()">Log Out</md-button>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+       
+        @RenderSection("scripts", required: false)
+    </div>
+    @Scripts.Render("~/bundles/main")
+    @Scripts.Render("~/bundles/enums")
+    @Scripts.Render("~/bundles/services")
+    @Scripts.Render("~/bundles/shared")
+    @Scripts.Render("~/bundles/directives")
+    @Scripts.Render("~/bundles/controllers")
+    <footer>
+        <p></p>
+    </footer>
+    <div growl></div>
+</body>
+</html>

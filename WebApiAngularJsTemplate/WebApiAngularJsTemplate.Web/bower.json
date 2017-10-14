@@ -1,0 +1,33 @@
+{
+  "name": "WebApiAngularJsTemplate",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.6.6",
+    "angular-block-ui": "~0.2.2",
+    "angular-ui": "~0.4.0",
+    "angular-bootstrap": "~1.3.3",
+    "angular-cookies": "~1.5.5",
+    "angular-translate": "~2.11.0",
+    "angular-translate-loader-url": "~2.11.0",
+    "angular-route": "~1.5.9",
+    "angular-aria": "1.6.6",
+    "angular-sanitize": "~1.4.8",
+    "angular-messages": "1.6.6",
+    "angular-file-upload": "~2.3.4",
+    "angular-file-saver": "~1.1.2",
+    "angular-material": "1.1.5",
+    "bootstrap": "3.3.7", 
+    "moment": "~2.13.0",
+    "ng-file-upload": "12.2.5",
+    "angular-animate": "1.6.6",
+    "angular-moment": "1.0.1",
+    "angular-growl-2": "0.7.9",
+    "angular-ui-router": "1.0.8",
+    "angular-jwt": "v0.0.6",
+    "ngstorage": "0.3.11",
+    "linqjs": "3.0.5"
+  },
+  "resolutions": {
+    "angular": "1.6.6"
+  }
+}

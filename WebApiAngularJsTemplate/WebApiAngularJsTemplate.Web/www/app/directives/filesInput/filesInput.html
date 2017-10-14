@@ -1,0 +1,40 @@
+﻿<div layout="column">
+    <md-list>
+        <h4 class="md-subhead text-center" ng-if="files &&  files.length > 0">Added files</h4>
+        <div ng-repeat="file in files" style="margin: 10px">
+            <div layout="row" layout-align="space-between center" style="margin-bottom: 10px;">
+                <div>Created by: {{file.userName}}</div>
+                <div>
+                    <time am-time-ago="file.dateCreated"></time>
+                    <md-tooltip md-z-index="1000" md-direction="bottom">{{file.dateCreated | date : "dd/MM/yyyy"}}</md-tooltip>
+                </div>
+            </div>
+            <div layout="row" layout-align="space-between center">
+                <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <span class="h4"><file-link link="{{file.link}}"  link-name="{{file.name}}"></file-link></span>
+                </div>
+                <div>
+                    <button type="button" class="button delete" ng-click="deleteFile($index)">
+                        <md-tooltip md-direction="bottom">Remove</md-tooltip>
+                    </button>
+                </div>
+            </div>
+            <md-divider style="margin-top: 10px" ng-if="!$last"></md-divider>
+        </div>
+        <h4 class="md-subhead text-center" ng-if="newFiles && newFiles.length > 0">New files</h4>
+        <div ng-repeat="newFile in newFiles" style="margin: 10px">
+            <div layout="row" layout-align="space-between center">
+                <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <span class="h4">{{newFile.name}}</span>
+                </div>
+                <div>
+                    <button type="button" class="button delete" ng-click="deleteNewFile($index)">
+                        <md-tooltip md-direction="bottom">Remove</md-tooltip>
+                    </button>
+                </div>
+            </div>
+            <md-divider ng-if="!$last"></md-divider>
+        </div>
+    </md-list>
+    <input id="fileInput" type="file" class="ng-hide"><md-button id="uploadButton" class="md-raised md-primary" ng-click="addFile()" aria-label="attach_file">{{buttonText}}</md-button>
+</div>
